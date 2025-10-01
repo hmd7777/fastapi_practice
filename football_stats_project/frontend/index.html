@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Football Stats</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@6/dist/echarts.min.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <header><h2>Football Stats (API-driven)</h2></header>
+    <main>
+      <div class="controls">
+        <select id="chartSelect">
+          <option value="yearly">Yearly W/D/L</option>
+          <option value="opponents">Top opponents</option>
+          <option value="goals_trend">Goals For vs Against</option>
+          <option value="race_yearly_wins">Top 10 per year — Wins</option>
+          <option value="race_yearly_goals">Top 10 per year — Goals</option>
+          <option value="race_cum_wins">Cumulative race — Wins</option>
+          <option value="race_cum_goals">Cumulative race — Goals</option>
+        </select>
+        <select id="tournamentSelect">
+          <option value="">All tournaments</option>
+        </select>        
+        <input id="teamInput" type="text" placeholder="Type a team (e.g., England, Brazil, USA)" />
+        <input id="yearFrom" type="number" placeholder="From (year)" />
+        <input id="yearTo"   type="number" placeholder="To (year)" />
+        <button id="loadBtn">Load</button>
+      </div>      
+      <div id="chart-opponents" class="card"></div>
+      <div id="chart-yearly" class="card"></div>
+      <div id="chart-race" class="card hidden"></div>
+      <div id="chart-goals" class="card hidden"></div>
+
+
+    </main>
+  </body>
+</html>
