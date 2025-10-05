@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parse Dashboard Replica</title>
+  <title>Iris Insights Dashboard</title>
   <link rel="stylesheet" href="./static/styles.css" />
   <!-- ECharts CDN -->
   <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
@@ -11,8 +11,8 @@
 <body>
   <header class="topbar">
     <div class="brand">
-      <img src="./static/images/siteLogo.png" alt="Parse logo" class="brand__logo" />
-      <span class="brand__name">Parse</span>
+      <img src="./static/images/siteLogo.png" alt="Iris Insights logo" class="brand__logo" />
+      <span class="brand__name">Iris Insights</span>
     </div>
     <div class="topbar__actions">
       <span class="topbar__status">⌄</span>
@@ -23,41 +23,40 @@
   <main class="layout">
     <section class="panel panel--chat">
       <header class="panel-header">
-        <h1 class="panel-title">Analyse with Parse</h1>
-        <button class="icon-btn" aria-label="Copy conversation">&#128203;</button>
+        <h1 class="panel-title">Analyse the Iris Dataset</h1>
+        <button class="icon-btn" aria-label="Copy prompt">&#128203;</button>
       </header>
 
       <div class="chat-thread">
         <div class="chat-thread__bubble chat-thread__bubble--user">
           <img src="./static/images/accountLogo.png" alt="Account" class="chat-thread__avatar" />
           <p>
-            Review the provided document to determine the average number of hours people in Madrid, London, New York,
-            Paris, Milan, Barcelona, Tokyo, Istanbul, Seoul and Los Angeles typically spend on their phones. Then,
-            create line charts to visualise this data with supporting text using dark backgrounds.
+            Explore the Iris measurements and summarise how sepal and petal lengths vary across Setosa, Versicolor, and
+            Virginica. Highlight any striking differences between the species and suggest visuals that reveal those
+            botanical patterns clearly.
           </p>
         </div>
       </div>
 
       <div class="chat-response" aria-label="AI response" tabindex="0">
-        <span class="chat-response__avatar">⚡</span>
+        <span class="chat-response__avatar">🌱</span>
         <div class="chat-response__body">
-          <h2>Parse</h2>
+          <h2>Iris Assistant</h2>
           <div class="chat-response__scroll">
             <p>
-              I'll put together a summary of mobile phone activity across the highlighted cities. Expect a chart sourced
-              from FileCities, a breakdown of what the chart reveals, and a set of dark-friendly UI references. This area
-              intentionally stretches with placeholder copy so you can scroll and mimic the longer answer in the mockup.
+              I'll pull together summaries that emphasise the floral measurements in the Iris dataset. Expect bar and line
+              charts that compare sepal and petal statistics, plus short explanations about what those differences mean
+              for each species. The copy below is intentionally long so you can scroll, mirroring a fuller analytic reply.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan, sapien vitae euismod dignissim,
-              nibh urna maximus sem, vitae cursus lorem lacus id eros. Integer vitae justo id augue aliquet ullamcorper.
-              Mauris vel quam vitae lectus fringilla vulputate. Suspendisse potenti. Donec tristique urna vel sem
-              pulvinar, non porta mauris pretium. Cras vitae libero a erat finibus ullamcorper. Vivamus pharetra,
-              nulla eu placerat dignissim, sem massa viverra nibh, quis varius orci nisi nec leo.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet felis id mauris condimentum, sed
+              posuere neque viverra. Integer vitae augue in tortor tempus pharetra. Morbi feugiat velit vitae arcu
+              venenatis, quis consequat justo porttitor. Donec tristique urna vel sem pulvinar, non porta mauris pretium.
+              Vivamus pharetra nulla eu placerat dignissim, sem massa viverra nibh, quis varius orci nisi nec leo.
             </p>
             <p>
-              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc
-              vulputate, tortor eu dignissim placerat, mi sem tincidunt neque, vitae tincidunt turpis est in velit.
+              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque
+              ullamcorper, est at cursus fringilla, neque justo interdum sapien, eget pretium justo odio quis eros.
               Vestibulum id rhoncus nunc. Donec viverra aliquam lacus, sit amet luctus nibh vehicula sed.
             </p>
           </div>
@@ -66,13 +65,13 @@
 
       <div class="chat-input">
         <div class="chat-thread__bubble chat-thread__bubble--input">
-          <label for="prompt" class="chat-input__label">Ask Parse for more insights…</label>
+          <label for="prompt" class="chat-input__label">Ask for more Iris insights…</label>
           <div class="chat-input__chips">
             <span class="chip">
               <img src="./static/images/borderCreatHistoryAuto.png" alt="Attachment icon" />
-              Attach
+              Attach CSV
             </span>
-            <span class="chip">FileCities</span>
+            <span class="chip">iris.csv</span>
           </div>
         </div>
       </div>
@@ -80,7 +79,7 @@
 
     <section class="panel panel--workspace">
       <header class="panel-header panel-header--workspace">
-        <h1 class="panel-title">Mobile phone activity</h1>
+        <h1 class="panel-title">Iris Dataset Explorer</h1>
         <div class="workspace-icons">
           <img src="./static/images/borderCreatHistoryAuto.png" alt="Workspace actions" />
         </div>
@@ -88,16 +87,23 @@
 
       <section class="chart-card">
         <div class="chart-card__header">
-          <h2>Hourly phone calls, SMS and Internet communication of an entire city (Monthly)</h2>
+          <h2 id="chart-heading">Average Sepal Length per Species (cm)</h2>
+          <label class="chart-picker" for="chart-type">
+            <span class="sr-only">Choose chart dataset</span>
+            <select id="chart-type" class="chart-picker__select">
+              <option value="avg-sepal-length" selected>Avg Sepal Length</option>
+              <option value="length-difference">Sepal - Petal Gap</option>
+              <option value="length-width-ratio">Length / Width Ratio</option>
+            </select>
+          </label>
         </div>
         <div id="chart" class="chart"></div>
         <div class="chart-card__copy">
-          <h3>Overview and City-by-City Comparison</h3>
+          <h3 id="chart-subtitle">Mean sepal length by species calculated from the Iris dataset.</h3>
           <p id="desc-text">Loading description…</p>
           <p>
-            The bar chart titled “Hourly phone calls, SMS and Internet communication of an entire city (Monthly)” presents
-            the aggregate communication activity across multiple global cities. These numbers provide a high-level
-            comparison for monthly phone usage, giving context to peaks and troughs visible in the chart above.
+            This dashboard analyses the Iris dataset, surfacing key measurements like sepal and petal lengths across species.
+            Use the dropdown to compare different statistical views for Setosa, Versicolor, and Virginica at a glance.
           </p>
         </div>
       </section>
