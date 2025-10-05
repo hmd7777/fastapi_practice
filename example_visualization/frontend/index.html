@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini ECharts Demo</title>
+  <link rel="stylesheet" href="./static/styles.css" />
+  <!-- ECharts CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+<body>
+  <main class="container">
+    <!-- Graph area (right side of your eventual layout) -->
+    <section class="card">
+      <h2 class="card-title">Hourly phone calls, SMS & Internet (Monthly)</h2>
+      <div id="chart" class="chart"></div>
+      <div class="desc">
+        <h3>Overview</h3>
+        <p id="desc-text">Loading description…</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="./static/app.js"></script>
+</body>
+</html>
