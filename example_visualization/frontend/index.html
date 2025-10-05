@@ -3,21 +3,104 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mini ECharts Demo</title>
+  <title>Parse Dashboard Replica</title>
   <link rel="stylesheet" href="./static/styles.css" />
   <!-- ECharts CDN -->
   <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
 </head>
 <body>
-  <main class="container">
-    <!-- Graph area (right side of your eventual layout) -->
-    <section class="card">
-      <h2 class="card-title">Hourly phone calls, SMS & Internet (Monthly)</h2>
-      <div id="chart" class="chart"></div>
-      <div class="desc">
-        <h3>Overview</h3>
-        <p id="desc-text">Loading description…</p>
+  <header class="topbar">
+    <div class="brand">
+      <img src="./static/images/siteLogo.png" alt="Parse logo" class="brand__logo" />
+      <span class="brand__name">Parse</span>
+    </div>
+    <div class="topbar__actions">
+      <span class="topbar__status">⌄</span>
+      <img src="./static/images/accountLogo.png" alt="Account avatar" class="avatar avatar--small" />
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel panel--chat">
+      <header class="panel-header">
+        <h1 class="panel-title">Analyse with Parse</h1>
+        <button class="icon-btn" aria-label="Copy conversation">&#128203;</button>
+      </header>
+
+      <div class="chat-thread">
+        <div class="chat-thread__bubble chat-thread__bubble--user">
+          <img src="./static/images/accountLogo.png" alt="Account" class="chat-thread__avatar" />
+          <p>
+            Review the provided document to determine the average number of hours people in Madrid, London, New York,
+            Paris, Milan, Barcelona, Tokyo, Istanbul, Seoul and Los Angeles typically spend on their phones. Then,
+            create line charts to visualise this data with supporting text using dark backgrounds.
+          </p>
+        </div>
       </div>
+
+      <div class="chat-response" aria-label="AI response" tabindex="0">
+        <span class="chat-response__avatar">⚡</span>
+        <div class="chat-response__body">
+          <h2>Parse</h2>
+          <div class="chat-response__scroll">
+            <p>
+              I'll put together a summary of mobile phone activity across the highlighted cities. Expect a chart sourced
+              from FileCities, a breakdown of what the chart reveals, and a set of dark-friendly UI references. This area
+              intentionally stretches with placeholder copy so you can scroll and mimic the longer answer in the mockup.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan, sapien vitae euismod dignissim,
+              nibh urna maximus sem, vitae cursus lorem lacus id eros. Integer vitae justo id augue aliquet ullamcorper.
+              Mauris vel quam vitae lectus fringilla vulputate. Suspendisse potenti. Donec tristique urna vel sem
+              pulvinar, non porta mauris pretium. Cras vitae libero a erat finibus ullamcorper. Vivamus pharetra,
+              nulla eu placerat dignissim, sem massa viverra nibh, quis varius orci nisi nec leo.
+            </p>
+            <p>
+              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc
+              vulputate, tortor eu dignissim placerat, mi sem tincidunt neque, vitae tincidunt turpis est in velit.
+              Vestibulum id rhoncus nunc. Donec viverra aliquam lacus, sit amet luctus nibh vehicula sed.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <div class="chat-thread__bubble chat-thread__bubble--input">
+          <label for="prompt" class="chat-input__label">Ask Parse for more insights…</label>
+          <div class="chat-input__chips">
+            <span class="chip">
+              <img src="./static/images/borderCreatHistoryAuto.png" alt="Attachment icon" />
+              Attach
+            </span>
+            <span class="chip">FileCities</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel--workspace">
+      <header class="panel-header panel-header--workspace">
+        <h1 class="panel-title">Mobile phone activity</h1>
+        <div class="workspace-icons">
+          <img src="./static/images/borderCreatHistoryAuto.png" alt="Workspace actions" />
+        </div>
+      </header>
+
+      <section class="chart-card">
+        <div class="chart-card__header">
+          <h2>Hourly phone calls, SMS and Internet communication of an entire city (Monthly)</h2>
+        </div>
+        <div id="chart" class="chart"></div>
+        <div class="chart-card__copy">
+          <h3>Overview and City-by-City Comparison</h3>
+          <p id="desc-text">Loading description…</p>
+          <p>
+            The bar chart titled “Hourly phone calls, SMS and Internet communication of an entire city (Monthly)” presents
+            the aggregate communication activity across multiple global cities. These numbers provide a high-level
+            comparison for monthly phone usage, giving context to peaks and troughs visible in the chart above.
+          </p>
+        </div>
+      </section>
     </section>
   </main>
 
